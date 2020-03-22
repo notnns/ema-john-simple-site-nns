@@ -12,7 +12,7 @@ const Cart = (props) => {
     }
 
     let shipping = 0;
-    if (totalPrice == 0) {
+    if (totalPrice === 0) {
         shipping = 0;
     }
     else {
