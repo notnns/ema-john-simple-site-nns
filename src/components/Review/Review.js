@@ -13,13 +13,9 @@ let thankYou;
 const Review = () => {
     const [orderPlaced, setOrderPlaced] = useState(false);
     const [cart, setCart] = useState([]);
-    
 
-    if (!cart.length && orderPlaced) {
-        thankYou = <div style={{ textAlign: "center" }}> <h1>First add something to cart</h1> </div>;
-    }
 
-    else if (orderPlaced) {
+    if (orderPlaced) {
         thankYou = <div style={{ textAlign: "center" }}><br /> <br /> <img src={happy} alt="" /> </div>;
     }
 
