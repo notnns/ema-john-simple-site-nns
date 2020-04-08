@@ -6,49 +6,64 @@ import Review from './components/Review/Review';
 import Inventory from './components/Inventory/Inventory';
 import NotFound from './components/NotFound/NotFound';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import Login from './components/Login/Login';
+import { createContext } from 'react';
+
+
+export const UserContext = createContext();
 
 
 
 function App() {
   return (
     <div>
-      <Header></Header>
+      <UserContext.Provider value="Gedu Mia">
 
-      <Router>
+        <Header />
 
-        <Switch>
-        <Route exact path="/">
-            <Shop />
-          </Route>
-    
-          <Route path="/shop">
-            <Shop />
-          </Route>
+        <Router>
 
-          <Route path="/review">
-            <Review />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Shop />
+            </Route>
 
-          <Route path="/inventory">
-            <Inventory/>
-          </Route>
+            <Route path="/shop">
+              <Shop />
+            </Route>
 
-      
-          <Route path="/product/:productKey">
-            <ProductDetails />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
+            <Route path="/review">
+              <Review />
+            </Route>
 
-        </Switch>
-      </Router>
+            <Route path="/login">
+              <Login />
+            </Route>
+
+            <Route path="/inventory">
+              <Inventory />
+            </Route>
+
+
+            <Route path="/product/:productKey">
+              <ProductDetails />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+
+          </Switch>
+        </Router>
+
+      </UserContext.Provider>
+
+
+
 
 
 

@@ -1,15 +1,18 @@
 import React from 'react';
 import './Cart.css';
+import { useContext } from 'react';
+import { UserContext } from '../../App';
 
 const Cart = (props) => {
     const cart = props.cart;
-    
+    const user = useContext(UserContext);
+    console.log(user);
 
     let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
         totalPrice += product.price * product.quantity;
-        
+
     }
 
     let shipping = 0;
@@ -59,6 +62,11 @@ const Cart = (props) => {
             {
                 props.children
             }
+
+            <p>{user}</p>
+
+
+
         </div>
     );
 };
