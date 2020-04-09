@@ -7,6 +7,7 @@ import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
 import happy from '../../images/giphy.gif';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../Login/useAuth';
 
 let thankYou;
 
@@ -14,6 +15,7 @@ let thankYou;
 const Review = () => {
     const [orderPlaced, setOrderPlaced] = useState(false);
     const [cart, setCart] = useState([]);
+    const auth = useAuth();
 
 
     if (orderPlaced) {
@@ -68,15 +70,22 @@ const Review = () => {
                 {
                     thankYou
                 }
+                {
+                    !cart.length && <h1>No product in your cart. <a href="/shop" style={{textDecoration: "none", color:"blue"}}>Keep shopping</a></h1>
+                }
 
             </div>
 
             <div className="cart-container">
                 <Cart cart={cart}>
                     <Link to="/shipment">
-                    <button className="review-btn">Proceed Checkout</button>
-                
-                    
+                        {
+                            auth.user ?
+                            <button className="review-btn">Proceed to Shipment</button>
+                            :
+                            <button className="review-btn">Login to Proceed</button>
+                        }
+
                     </Link>
                 </Cart>
             </div>

@@ -1,9 +1,9 @@
 .product {
     display: flex;
     border-bottom: 1px solid lightgray;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    margin-right: 5px;
+    margin: 10px;
+    padding: 10px;
+    
 }
 
 .productName {
