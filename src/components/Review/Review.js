@@ -12,7 +12,7 @@ import { useAuth } from '../Login/useAuth';
 let thankYou;
 
 
-export const Review = () => {
+const Review = () => {
     const [orderPlaced, setOrderPlaced] = useState(false);
     const [cart, setCart] = useState([]);
     const auth = useAuth();
