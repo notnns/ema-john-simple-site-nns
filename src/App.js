@@ -12,17 +12,23 @@ import {
   Route
 } from "react-router-dom";
 import Login from './components/Login/Login';
-import { createContext } from 'react';
+// import { createContext } from 'react';
+import { AuthContextProvider, PrivateRoute } from './components/Login/useAuth';
+import Shipment from './components/Shipment/Shipment';
 
 
-export const UserContext = createContext();
+
+
+
 
 
 
 function App() {
+  // const user = {name: 'Kodu Mia', email: 'habijabi@google.com'}
   return (
     <div>
-      <UserContext.Provider value="Gedu Mia">
+    <AuthContextProvider>
+      
 
         <Header />
 
@@ -53,6 +59,10 @@ function App() {
             <Route path="/product/:productKey">
               <ProductDetails />
             </Route>
+            <PrivateRoute path="/shipment">
+              <Shipment />
+            </PrivateRoute>
+
             <Route path="*">
               <NotFound />
             </Route>
@@ -60,7 +70,9 @@ function App() {
           </Switch>
         </Router>
 
-      </UserContext.Provider>
+        </AuthContextProvider>
+
+   
 
 
 

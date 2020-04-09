@@ -1,12 +1,14 @@
 import React from 'react';
 import './Cart.css';
-import { useContext } from 'react';
-import { UserContext } from '../../App';
+import { useAuth } from '../Login/useAuth';
+// import { useContext } from 'react';
+// import { UserContext } from '../../App';
 
 const Cart = (props) => {
     const cart = props.cart;
-    const user = useContext(UserContext);
-    console.log(user);
+    const auth = useAuth();
+    // const user = useContext(UserContext);
+    // console.log(user);
 
     let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -63,7 +65,7 @@ const Cart = (props) => {
                 props.children
             }
 
-            <p>{user}</p>
+            <p></p>
 
 
 

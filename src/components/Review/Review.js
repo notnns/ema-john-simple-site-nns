@@ -6,6 +6,7 @@ import fakeData from '../../fakeData';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
 import happy from '../../images/giphy.gif';
+import { Link } from 'react-router-dom';
 
 let thankYou;
 
@@ -72,7 +73,11 @@ const Review = () => {
 
             <div className="cart-container">
                 <Cart cart={cart}>
-                    <button onClick={handlePlaceOrder} className="review-btn">Place Order</button>
+                    <Link to="/shipment">
+                    <button className="review-btn">Proceed Checkout</button>
+                
+                    
+                    </Link>
                 </Cart>
             </div>
         </div>
